@@ -7,7 +7,7 @@
 }
 /* =======================================================
 *
-* 	Template Style 
+* 	Template Style
 *
 * ======================================================= */
 body {
@@ -855,6 +855,36 @@ form label {
     padding-top: 80px;
   }
 }
+
+/* =====================================================
+   Center-align Names at Top (CSS only)
+   ===================================================== */
+
+#fh5co-header .display-tc {
+  vertical-align: top !important;
+  padding-top: 40px !important;
+  text-align: center !important;
+}
+
+/* Main Name */
+#fh5co-header .display-tc h1 {
+  margin-top: 0 !important;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Subtitle */
+#fh5co-header .display-tc h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media screen and (max-width: 768px) {
+  #fh5co-header .display-tc {
+    padding-top: 24px !important;
+  }
+}
 #fh5co-header .display-tc h1, #fh5co-header .display-tc h2,
 #fh5co-counter .display-tc h1,
 #fh5co-counter .display-tc h2,
@@ -986,12 +1016,12 @@ form label {
   margin: 0 auto;
 
   display: flex;
-  justify-content: space-evenly;   /* KEY: equal distance */
+  justify-content: space-evenly;   /* Equal space everywhere including edges */
   align-items: center;
 
   width: 100%;
-  max-width: 900px;                /* keeps it elegant on large screens */
-  padding: 0 24px;
+  max-width: 900px;
+  padding: 0 20px;
   z-index: 20;
 }
 
