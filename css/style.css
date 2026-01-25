@@ -979,38 +979,55 @@ form label {
 
 .simply-countdown {
   /* The countdown container */
-  position: relative;
-  margin-bottom: 8em;
-  height: 100%;
+   position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -45px;
+  margin: 0 auto;
+
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between; /* Distribute bubbles evenly */
+  justify-content: space-evenly;   /* KEY: equal distance */
+  align-items: center;
+
+  width: 100%;
+  max-width: 900px;                /* keeps it elegant on large screens */
+  padding: 0 24px;
+  z-index: 20;
 }
 
 .simply-countdown > .simply-section {
   /* Countdown blocks */
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  background: rgba(241, 78, 149, 0.8);
-  margin: 0 4px;
+   width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #f14e95, #ff7eb3);
   border-radius: 50%;
-  position: relative;
-  animation: pulse 1s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  flex: 0 0 auto; 
 }
 
 .simply-countdown > .simply-section > div {
   /* Countdown block inner div */
-  display: table-cell;
-  vertical-align: middle;
-  height: 100px;
-  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
 }
 
-.simply-countdown > .simply-section .simply-amount,
+.simply-countdown > .simply-section .simply-amount{
+    font-size: 36px;
+  font-weight: 600;
+  color: #fff;
+}
 .simply-countdown > .simply-section .simply-word {
-  display: block;
-  color: white;
+font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 4px;
   /* Amounts and words */
 }
 
@@ -1893,3 +1910,26 @@ form label {
 }
 
 /*# sourceMappingURL=style.css.map */
+/* MOBILE RESPONSIVE FIX */
+@media screen and (max-width: 768px) {
+  .simply-countdown {
+    bottom: -32px;
+    max-width: 100%;
+    padding: 0 12px;
+    /* gap: 14px; */
+  }
+
+  .simply-countdown > .simply-section {
+    width: 80px;
+    height: 80px;
+  }
+
+  .simply-countdown .simply-amount {
+    font-size: 24px;
+  }
+
+  .simply-countdown .simply-word {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+}
