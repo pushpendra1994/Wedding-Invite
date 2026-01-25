@@ -315,6 +315,10 @@ h1, h2, h3, h4, h5, h6, figure {
   position: relative;
   z-index: 10;
 }
+.fh5co-cover .container {
+  position: relative;
+  z-index: 10;
+}
 @media screen and (max-width: 768px) {
   .fh5co-cover {
     height: 600px;
@@ -411,6 +415,16 @@ h1, h2, h3, h4, h5, h6, figure {
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   border-radius: 4px;
+}
+#fh5co-event .event-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+#fh5co-event .event-row > [class*="col-"] {
+  display: flex;
+}
+#fh5co-event .event-row .event-wrap {
+  height: 100%;
 }
 @media screen and (max-width: 768px) {
   #fh5co-counter .event-wrap,
@@ -830,6 +844,16 @@ form label {
 .fh5co-cover .display-tc {
   display: table-cell !important;
   vertical-align: middle;
+  position: relative;
+  z-index: 2;
+  padding-top: 120px;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-header .display-tc,
+  #fh5co-counter .display-tc,
+  .fh5co-cover .display-tc {
+    padding-top: 80px;
+  }
 }
 #fh5co-header .display-tc h1, #fh5co-header .display-tc h2,
 #fh5co-counter .display-tc h1,
@@ -839,14 +863,22 @@ form label {
   margin: 0;
   padding: 0;
   color: white;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
 }
 #fh5co-header .display-tc h1,
 #fh5co-counter .display-tc h1,
 .fh5co-cover .display-tc h1 {
   margin-bottom: 0px;
-  font-size: 100px;
-  line-height: 1.5;
+  margin-top: 40px;
+  font-size: clamp(28px, 7vw, 72px);
+  line-height: 1.2;
   font-family: "Sacramento", Arial, serif;
+  background: rgba(0, 0, 0, 0.45);
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 6px;
+  white-space: nowrap;
+  max-width: 100%;
 }
 @media screen and (max-width: 768px) {
   /* #fh5co-header .display-tc h1, */
@@ -862,7 +894,8 @@ form label {
   #fh5co-header .display-tc h1,
   #fh5co-counter .display-tc h1,
   .fh5co-cover .display-tc h1 {
-    font-size: 30px;
+    font-size: 24px;
+    padding: 4px 10px;
   }
 }
 #fh5co-header .display-tc h2,
@@ -871,6 +904,10 @@ form label {
   font-size: 20px;
   line-height: 1.5;
   margin-bottom: 30px;
+  background: rgba(0, 0, 0, 0.35);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
 }
 @media screen and (max-width: 480px) {
   #fh5co-header .display-tc h2,
@@ -1188,9 +1225,20 @@ form label {
   color: #F14E95;
   font-family: "Sacramento", Arial, serif;
 }
+.fh5co-heading h3 {
+  font-size: 24px;
+  line-height: 1.4;
+  margin: 0 0 10px;
+  color: #555;
+  font-weight: 400;
+}
 @media screen and (max-width: 768px) {
   .fh5co-heading h2 {
     font-size: 40px;
+  }
+  .fh5co-heading h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
   }
 }
 .fh5co-heading p {
