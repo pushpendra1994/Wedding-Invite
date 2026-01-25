@@ -7,7 +7,7 @@
 }
 /* =======================================================
 *
-* 	Template Style 
+* 	Template Style
 *
 * ======================================================= */
 body {
@@ -315,6 +315,10 @@ h1, h2, h3, h4, h5, h6, figure {
   position: relative;
   z-index: 10;
 }
+.fh5co-cover .container {
+  position: relative;
+  z-index: 10;
+}
 @media screen and (max-width: 768px) {
   .fh5co-cover {
     height: 600px;
@@ -411,6 +415,16 @@ h1, h2, h3, h4, h5, h6, figure {
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   border-radius: 4px;
+}
+#fh5co-event .event-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+#fh5co-event .event-row > [class*="col-"] {
+  display: flex;
+}
+#fh5co-event .event-row .event-wrap {
+  height: 100%;
 }
 @media screen and (max-width: 768px) {
   #fh5co-counter .event-wrap,
@@ -830,6 +844,46 @@ form label {
 .fh5co-cover .display-tc {
   display: table-cell !important;
   vertical-align: middle;
+  position: relative;
+  z-index: 2;
+  padding-top: 120px;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-header .display-tc,
+  #fh5co-counter .display-tc,
+  .fh5co-cover .display-tc {
+    padding-top: 80px;
+  }
+}
+
+/* =====================================================
+   Center-align Names at Top (CSS only)
+   ===================================================== */
+
+#fh5co-header .display-tc {
+  vertical-align: top !important;
+  padding-top: 40px !important;
+  text-align: center !important;
+}
+
+/* Main Name */
+#fh5co-header .display-tc h1 {
+  margin-top: 0 !important;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Subtitle */
+#fh5co-header .display-tc h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media screen and (max-width: 768px) {
+  #fh5co-header .display-tc {
+    padding-top: 24px !important;
+  }
 }
 #fh5co-header .display-tc h1, #fh5co-header .display-tc h2,
 #fh5co-counter .display-tc h1,
@@ -839,14 +893,22 @@ form label {
   margin: 0;
   padding: 0;
   color: white;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
 }
 #fh5co-header .display-tc h1,
 #fh5co-counter .display-tc h1,
 .fh5co-cover .display-tc h1 {
   margin-bottom: 0px;
-  font-size: 100px;
-  line-height: 1.5;
+  margin-top: 40px;
+  font-size: clamp(28px, 7vw, 72px);
+  line-height: 1.2;
   font-family: "Sacramento", Arial, serif;
+  background: rgba(0, 0, 0, 0.45);
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 6px;
+  white-space: nowrap;
+  max-width: 100%;
 }
 @media screen and (max-width: 768px) {
   /* #fh5co-header .display-tc h1, */
@@ -862,7 +924,8 @@ form label {
   #fh5co-header .display-tc h1,
   #fh5co-counter .display-tc h1,
   .fh5co-cover .display-tc h1 {
-    font-size: 30px;
+    font-size: 24px;
+    padding: 4px 10px;
   }
 }
 #fh5co-header .display-tc h2,
@@ -871,6 +934,10 @@ form label {
   font-size: 20px;
   line-height: 1.5;
   margin-bottom: 30px;
+  background: rgba(0, 0, 0, 0.35);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
 }
 @media screen and (max-width: 480px) {
   #fh5co-header .display-tc h2,
@@ -942,38 +1009,55 @@ form label {
 
 .simply-countdown {
   /* The countdown container */
-  position: relative;
-  margin-bottom: 8em;
-  height: 100%;
+   position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -45px;
+  margin: 0 auto;
+
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between; /* Distribute bubbles evenly */
+  justify-content: space-evenly;   /* Equal space everywhere including edges */
+  align-items: center;
+
+  width: 100%;
+  max-width: 900px;
+  padding: 0 20px;
+  z-index: 20;
 }
 
 .simply-countdown > .simply-section {
   /* Countdown blocks */
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  background: rgba(241, 78, 149, 0.8);
-  margin: 0 4px;
+   width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #f14e95, #ff7eb3);
   border-radius: 50%;
-  position: relative;
-  animation: pulse 1s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  flex: 0 0 auto; 
 }
 
 .simply-countdown > .simply-section > div {
   /* Countdown block inner div */
-  display: table-cell;
-  vertical-align: middle;
-  height: 100px;
-  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
 }
 
-.simply-countdown > .simply-section .simply-amount,
+.simply-countdown > .simply-section .simply-amount{
+    font-size: 36px;
+  font-weight: 600;
+  color: #fff;
+}
 .simply-countdown > .simply-section .simply-word {
-  display: block;
-  color: white;
+font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 4px;
   /* Amounts and words */
 }
 
@@ -1188,9 +1272,20 @@ form label {
   color: #F14E95;
   font-family: "Sacramento", Arial, serif;
 }
+.fh5co-heading h3 {
+  font-size: 24px;
+  line-height: 1.4;
+  margin: 0 0 10px;
+  color: #555;
+  font-weight: 400;
+}
 @media screen and (max-width: 768px) {
   .fh5co-heading h2 {
     font-size: 40px;
+  }
+  .fh5co-heading h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
   }
 }
 .fh5co-heading p {
@@ -1845,3 +1940,26 @@ form label {
 }
 
 /*# sourceMappingURL=style.css.map */
+/* MOBILE RESPONSIVE FIX */
+@media screen and (max-width: 768px) {
+  .simply-countdown {
+    bottom: -32px;
+    max-width: 100%;
+    padding: 0 12px;
+    /* gap: 14px; */
+  }
+
+  .simply-countdown > .simply-section {
+    width: 80px;
+    height: 80px;
+  }
+
+  .simply-countdown .simply-amount {
+    font-size: 24px;
+  }
+
+  .simply-countdown .simply-word {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+}
